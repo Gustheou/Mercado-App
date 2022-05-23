@@ -23,7 +23,7 @@
       </ImageView>
       <AnchorPane layoutY="-6.0" prefHeight="49.0" prefWidth="270.0" style="-fx-background-color: #FF8400;">
          <children>
-            <Label layoutX="76.0" layoutY="6.0" text="Mercardo APP" textFill="WHITE" underline="true">
+            <Label layoutX="76.0" layoutY="6.0" text="Mercado APP" textFill="WHITE" underline="true">
                <font>
                   <Font name="SF Pro Display Bold" size="25.0" />
                </font>
@@ -40,6 +40,9 @@
                <font>
                   <Font name="Rockwell" size="25.0" />
                </font>
+               <VBox.margin>
+                  <Insets top="19.0" />
+               </VBox.margin>
             </Label>
             <VBox>
                <children>
@@ -85,7 +88,7 @@
                         <TextField fx:id="diaTextField11" alignment="CENTER" style="-fx-background-color: #e0e0e0; -fx-border-color: while; -fx-background-radius: 10;" GridPane.columnIndex="4" />
                      </children>
                   </GridPane>
-                  <Label prefHeight="23.0" prefWidth="68.0" text="Endereço: ">
+                  <Label prefHeight="23.0" prefWidth="96.0" text="Endereço: ">
                      <font>
                         <Font name="Times New Roman Bold" size="14.0" />
                      </font>
@@ -115,6 +118,12 @@
                         <Insets bottom="5.0" />
                      </VBox.margin>
                   </TextField>
+                  <Label text="Senha:">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField accessibleRole="PASSWORD_FIELD" style="-fx-border-color: white; -fx-background-color: #e0e0e0; -fx-background-radius: 10;" />
                </children>
                <padding>
                   <Insets bottom="15.0" top="15.0" />
@@ -122,8 +131,8 @@
             </VBox>
             <GridPane>
               <columnConstraints>
-                <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="119.0" minWidth="10.0" prefWidth="118.0" />
+                <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="133.0" minWidth="10.0" prefWidth="122.0" />
               </columnConstraints>
               <rowConstraints>
                 <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
@@ -136,7 +145,7 @@
                      <graphic>
                         <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity">
                            <children>
-                              <Label text="Concluir" textFill="#c35817">
+                              <Label prefHeight="25.0" prefWidth="86.0" text="Concluir" textFill="#c35817">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
