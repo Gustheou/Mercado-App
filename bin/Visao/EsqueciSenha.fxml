@@ -4,10 +4,15 @@
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
@@ -31,12 +36,69 @@
                </font>
             </Label>
          </children></AnchorPane>
-      <Label layoutX="92.0" layoutY="185.0" text="Login:" visible="false">
-         <font>
-            <Font name="Rockwell" size="30.0" />
-         </font>
-      </Label>
-      <VBox fx:id="userCPF_Vboc" alignment="TOP_CENTER" layoutX="72.0" layoutY="176.0" prefHeight="216.0" prefWidth="126.0">
+      <GridPane layoutY="423.0" prefHeight="30.0" prefWidth="270.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Button mnemonicParsing="false" onAction="#voltarButton" style="-fx-background-color: white;" text="Voltar" textFill="#c35817">
+               <graphic>
+                  <ImageView fitHeight="51.0" fitWidth="30.0" onMouseClicked="#voltarImageButton" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Imagens/Flecha%20voltar.png" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="concluirButton" mnemonicParsing="false" onAction="#concluirButton" style="-fx-background-radius: 6; -fx-border-radius: 6; -fx-border-width: 1; -fx-border-width: #fafafa; -fx-background-color: rgba(0,0,0,0);" textFill="WHITE" GridPane.columnIndex="1">
+               <font>
+                  <Font name="Rockwell" size="15.0" />
+               </font>
+               <graphic>
+                  <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity">
+                     <children>
+                        <Label prefHeight="25.0" prefWidth="86.0" text="Concluir" textFill="#c35817">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets right="2.0" />
+                           </HBox.margin>
+                        </Label>
+                        <ImageView fx:id="imageConcluirButton" fitHeight="51.0" fitWidth="30.0" onMouseClicked="#concluirImageButton" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Imagens/concluir_icon.png" />
+                           </image>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </ImageView>
+                     </children>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </HBox>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+         </children>
+      </GridPane>
+      <VBox fx:id="vboxDados" alignment="TOP_CENTER" layoutX="72.0" layoutY="176.0" prefHeight="216.0" prefWidth="126.0">
          <children>
             <TextField fx:id="novaSenhaUsuarioTextField" promptText="Usuário" style="-fx-background-color: #e0e0e0; -fx-background-radius: 10;">
                <VBox.margin>
@@ -48,7 +110,7 @@
                   <Insets top="20.0" />
                </VBox.margin>
             </TextField>
-            <Button fx:id="proseguirButton" alignment="CENTER_RIGHT" mnemonicParsing="false" style="-fx-background-color: #C35817; -fx-background-radius: 10; -fx-border-radius: 10;" text="Prosseguir" textFill="#fafafa">
+            <Button fx:id="prosseguirButton" alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#prosseguirButton" style="-fx-background-color: #C35817; -fx-background-radius: 10; -fx-border-radius: 10;" text="Prosseguir" textFill="#fafafa">
                <VBox.margin>
                   <Insets top="20.0" />
                </VBox.margin>
@@ -63,46 +125,26 @@
             <Font size="25.0" />
          </font>
       </Label>
-      <Button layoutY="410.0" mnemonicParsing="false" onAction="#voltarButton" style="-fx-background-color: white;" text="Voltar" textFill="#c35817">
-         <graphic>
-            <ImageView fitHeight="51.0" fitWidth="30.0" onMouseClicked="#voltarImageButton" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../Imagens/Flecha%20voltar.png" />
-               </image>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </ImageView>
-         </graphic>
-         <font>
-            <Font size="18.0" />
-         </font>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </Button>
-      <AnchorPane fx:id="posProseguirSenha" layoutX="35.0" layoutY="185.0" prefHeight="200.0" prefWidth="200.0" visible="false">
+      <AnchorPane fx:id="posProseguirSenha" layoutX="35.0" layoutY="185.0" prefHeight="200.0" prefWidth="200.0" visible="false" />
+      <VBox fx:id="vboxNewSenha" alignment="TOP_CENTER" layoutX="57.0" layoutY="176.0" prefHeight="216.0" prefWidth="155.0" visible="false">
          <children>
-            <VBox alignment="TOP_CENTER" layoutX="37.0" prefHeight="216.0" prefWidth="126.0">
-               <children>
-                  <TextField fx:id="novaSenha_Usuario_TextField1" promptText="Nova senha" style="-fx-background-color: #e0e0e0; -fx-background-radius: 10;">
-                     <VBox.margin>
-                        <Insets top="20.0" />
-                     </VBox.margin>
-                  </TextField>
-                  <TextField fx:id="novaSenha_CPF_TextField1" promptText="Digite de novo" style="-fx-background-color: #e0e0e0; -fx-background-radius: 10;">
-                     <VBox.margin>
-                        <Insets top="20.0" />
-                     </VBox.margin>
-                  </TextField>
-                  <Button fx:id="finalizarNewSenha_Button" contentDisplay="CENTER" mnemonicParsing="false" style="-fx-background-color: #C35817; -fx-background-radius: 10; -fx-border-radius: 10;" text="Finalizar" textAlignment="CENTER" textFill="#fafafa">
-                     <VBox.margin>
-                        <Insets top="20.0" />
-                     </VBox.margin>
-                  </Button>
-               </children>
-            </VBox>
+            <PasswordField promptText="Senha" style="-fx-background-color: #e0e0e0; -fx-background-radius: 10;">
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+               <cursor>
+                  <Cursor fx:constant="TEXT" />
+               </cursor>
+            </PasswordField>
+            <PasswordField promptText="Repita a senha" style="-fx-background-color: #e0e0e0; -fx-background-radius: 10;">
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+               <cursor>
+                  <Cursor fx:constant="TEXT" />
+               </cursor>
+            </PasswordField>
          </children>
-      </AnchorPane>
+      </VBox>
    </children>
 </AnchorPane>

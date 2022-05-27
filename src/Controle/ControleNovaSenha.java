@@ -15,22 +15,25 @@ public class ControleNovaSenha {
     private Button finalizarNewSenha_Button;
 
     @FXML
+    private Button prosseguirButton;
+
+    @FXML
     private TextField novaSenhaCPFTextField;
 
     @FXML
     private TextField novaSenhaUsuarioTextField;
 
     @FXML
-    private TextField novaSenha_CPF_TextField1;
-
-    @FXML
-    private TextField novaSenha_Usuario_TextField1;
-
-    @FXML
     private AnchorPane posProseguirSenha;
 
     @FXML
     private Button proseguirButton;
+
+    @FXML
+    private Button concluirButton;
+
+    @FXML
+    private ImageView imageConcluirButton;
 
     @FXML
     private VBox userCPF_Vboc;
@@ -43,6 +46,15 @@ public class ControleNovaSenha {
     @FXML
     void voltarImageButton(MouseEvent event) {
       MercadoApp.changeScreenTelaLogin(event);
+    }
+
+    @FXML
+    void prosseguirButton(ActionEvent event) {
+      //pesquisar nos arquivos
+      novaSenhaCPFTextField.setVisible(false);
+      novaSenhaUsuarioTextField.setVisible(false);
+      prosseguirButton.setVisible(false);
+
     }
 
 }
