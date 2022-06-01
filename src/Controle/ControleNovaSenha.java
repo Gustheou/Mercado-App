@@ -4,6 +4,7 @@ import Visao.MercadoApp;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -37,7 +38,18 @@ public class ControleNovaSenha {
     private VBox vboxNewSenha;
 
     @FXML
+    private PasswordField confirmarNovaSenhaPasswordField;
+    @FXML
+    private PasswordField novaSenhaPasswordField;
+
+    @FXML
     public void voltarButton(ActionEvent event) {
+      vboxNewSenha.setVisible(false);
+      novaSenhaPasswordField.setText("");
+      confirmarNovaSenhaPasswordField.setText("");
+      novaSenhaCPFTextField.setText("");
+      novaSenhaUsuarioTextField.setText("");
+      vboxDados.setVisible(true);
       MercadoApp.changeScreenTelaLogin(event);
     }
 

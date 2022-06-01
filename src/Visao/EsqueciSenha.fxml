@@ -128,7 +128,7 @@
       <AnchorPane fx:id="posProseguirSenha" layoutX="35.0" layoutY="185.0" prefHeight="200.0" prefWidth="200.0" visible="false" />
       <VBox fx:id="vboxNewSenha" alignment="TOP_CENTER" layoutX="57.0" layoutY="176.0" prefHeight="216.0" prefWidth="155.0" visible="false">
          <children>
-            <PasswordField promptText="Senha" style="-fx-background-color: #e0e0e0; -fx-background-radius: 10;">
+            <PasswordField fx:id="novaSenhaPasswordField" promptText="Senha" style="-fx-background-color: #e0e0e0; -fx-background-radius: 10;">
                <VBox.margin>
                   <Insets top="20.0" />
                </VBox.margin>
@@ -136,7 +136,7 @@
                   <Cursor fx:constant="TEXT" />
                </cursor>
             </PasswordField>
-            <PasswordField promptText="Repita a senha" style="-fx-background-color: #e0e0e0; -fx-background-radius: 10;">
+            <PasswordField fx:id="confirmarNovaSenhaPasswordField" promptText="Repita a senha" style="-fx-background-color: #e0e0e0; -fx-background-radius: 10;">
                <VBox.margin>
                   <Insets top="20.0" />
                </VBox.margin>
