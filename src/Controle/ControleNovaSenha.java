@@ -126,4 +126,4 @@ public class ControleNovaSenha {
       JOptionPane.showMessageDialog(null,"Nova senha cadastrada com sucesso.");  
     }
   }
-}
+}//end class
