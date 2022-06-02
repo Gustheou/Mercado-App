@@ -84,7 +84,7 @@ public class Cliente implements Serializable {
     return dc.listarCliente();
   }  
 
-  public void subsTituir(String cpf, String usuario, String novaSenha) throws IOException, FileNotFoundException, ClassNotFoundException{
+  public void substituir(String cpf, String usuario, String novaSenha) throws IOException, FileNotFoundException, ClassNotFoundException{
     DadosCliente dp = new DadosCliente();
     dp.substituir(cpf, usuario, novaSenha);
  }

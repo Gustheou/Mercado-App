@@ -83,12 +83,12 @@ public class ControleAdicionarCartao {
 
   @FXML
   void voltarButton(ActionEvent event) {
-    MercadoApp.changeScreenTelaDeCompras(event);
+    MercadoApp.changeScreenFinalizarCompra(event);
   }
 
   @FXML
   void voltarImageButton(MouseEvent event) {
-    MercadoApp.changeScreenTelaLogin(event);
+    MercadoApp.changeScreenFinalizarCompra(event);
   }
 
 }
