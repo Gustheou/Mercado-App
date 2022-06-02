@@ -9,6 +9,9 @@ import Modelo.Cliente;
 import Visao.MercadoApp;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -16,6 +19,8 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
+import javafx.scene.Node;
 
 public class ControleNovaSenha {
 
@@ -48,6 +53,10 @@ public class ControleNovaSenha {
   @FXML
   private PasswordField novaSenhaPasswordField;
 
+  private Scene scene;//
+  private Stage palco;// cria a janela no desktop
+  private Parent root;// indica qual arquivo fxml
+
   private Cliente cliente = new Cliente();
   @FXML
   public void voltarButton(ActionEvent event) {
@@ -66,8 +75,21 @@ public class ControleNovaSenha {
   }
 
   @FXML
-  public void concluirButton (ActionEvent event) {
-    //Fazer condicional se as senhas sao iguais e depois salvar a nova senha
+  public void concluirButton (ActionEvent e) throws FileNotFoundException, ClassNotFoundException, IOException{ 
+    if(novaSenhaPasswordField.getText().equals(confirmarNovaSenhaPasswordField.getText())){
+      cliente.subsTituir(novaSenhaCPFTextField.getText(), novaSenhaUsuarioTextField.getText(), novaSenhaPasswordField.getText());
+      JOptionPane.showMessageDialog(null,"Nova senha cadastrada com sucesso.");  
+
+      Parent root = FXMLLoader.load(getClass().getResource("/Visao/LoginScreenMercadoApp.fxml"));
+      palco = (Stage) ((Node) e.getSource()).getScene().getWindow();
+      scene = new Scene(root);
+      palco.setScene(scene);
+      palco.show();
+
+    }
+    else{
+      JOptionPane.showMessageDialog(null,"As senhas não sao iguais.");  
+    }
   }
 
   @FXML
@@ -82,13 +104,5 @@ public class ControleNovaSenha {
     vboxNewSenha.setVisible(true);
     concluirButton.setVisible(true);
     imageConcluirButton.setVisible(true);
-  }
-
-  @FXML
-  public void criarNovaSenha(ActionEvent event) throws FileNotFoundException, ClassNotFoundException, IOException{
-    if(novaSenhaPasswordField.getText().equals(confirmarNovaSenhaPasswordField.getText())){
-      cliente.subsTituir(novaSenhaCPFTextField.getText(), novaSenhaUsuarioTextField.getText(), novaSenhaPasswordField.getText());
-      JOptionPane.showMessageDialog(null,"Nova senha cadastrada com sucesso.");  
-    }
   }
 }
