@@ -59,6 +59,14 @@ public class ControleCadastro {
         MercadoApp.changeScreenTelaLogin(event);
     }
     } catch (NumberFormatException e) {}
+    cpfTextField.setText("");
+    diaTextField.setText("");
+    anoTextField.setText("");
+    emailTextField.setText("");
+    enderecoTextField.setText("");
+    mesTextField.setText("");
+    nomeTextFIeld.setText("");
+    senhaTextField.setText("");
   }
   
   @FXML
@@ -83,15 +91,39 @@ public class ControleCadastro {
         MercadoApp.changeScreenTelaLogin(event);
     }
     } catch (NumberFormatException e) {}
+    cpfTextField.setText("");
+    diaTextField.setText("");
+    anoTextField.setText("");
+    emailTextField.setText("");
+    enderecoTextField.setText("");
+    mesTextField.setText("");
+    nomeTextFIeld.setText("");
+    senhaTextField.setText("");
   }
 
   @FXML
   void voltarButton(ActionEvent event) {
+    cpfTextField.setText("");
+    diaTextField.setText("");
+    anoTextField.setText("");
+    emailTextField.setText("");
+    enderecoTextField.setText("");
+    mesTextField.setText("");
+    nomeTextFIeld.setText("");
+    senhaTextField.setText("");
     MercadoApp.changeScreenTelaLogin(event);
   }
 
   @FXML
   void voltarImageButton(MouseEvent event) {
+    cpfTextField.setText("");
+    diaTextField.setText("");
+    anoTextField.setText("");
+    emailTextField.setText("");
+    enderecoTextField.setText("");
+    mesTextField.setText("");
+    nomeTextFIeld.setText("");
+    senhaTextField.setText("");
     MercadoApp.changeScreenTelaLogin(event);
   }
 }
