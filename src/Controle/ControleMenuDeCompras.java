@@ -4,6 +4,7 @@ import Visao.MercadoApp;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.input.MouseEvent;
 
 public class ControleMenuDeCompras {
@@ -38,7 +39,7 @@ public class ControleMenuDeCompras {
   @FXML
   private Label tomateQuantLabel;
 
-  public int contPao, contBerinjela, contOvos, contFrango, contLeite, contCenoura, contPicanha,
+  public static int contPao, contBerinjela, contOvos, contFrango, contLeite, contCenoura, contPicanha,
   contAlface, contQueijo, contTomate = 0;
 
   @FXML
@@ -150,6 +151,7 @@ public class ControleMenuDeCompras {
     else
     quantAlfaceLabel.setText(String.valueOf(contAlface));
     }
+    setContAlface(contAlface);
   }
 
   @FXML
@@ -161,6 +163,7 @@ public class ControleMenuDeCompras {
     else
     berinjelaQuantLabel.setText(String.valueOf(contBerinjela));
     }
+    setContBerinjela(contBerinjela);
   }
 
   @FXML
@@ -172,6 +175,7 @@ public class ControleMenuDeCompras {
     else
     cenouraQuantLabel.setText(String.valueOf(contCenoura));
     }
+    setContCenoura(contCenoura);
   }
 
   @FXML
@@ -183,6 +187,7 @@ public class ControleMenuDeCompras {
     else
     frangoQuantLabel.setText(String.valueOf(contFrango));
     }
+    setContFrango(contFrango);
   }
 
   @FXML
@@ -194,6 +199,7 @@ public class ControleMenuDeCompras {
     else
     leiteQuantLabel.setText(String.valueOf(contLeite));
     }
+    setContLeite(contLeite);
   }
 
   @FXML
@@ -205,6 +211,7 @@ public class ControleMenuDeCompras {
     else
     ovosQuantLabel.setText(String.valueOf(contOvos));
     }
+    setContOvos(contOvos);
   }
 
   @FXML
@@ -216,6 +223,7 @@ public class ControleMenuDeCompras {
     else
     quantPaoLabel.setText(String.valueOf(contPao));
     }
+    setContPao(contPao);
   }
 
   @FXML
@@ -227,6 +235,7 @@ public class ControleMenuDeCompras {
     else
     picanhaQuantLabel.setText(String.valueOf(contPicanha));
     }
+    setContPicanha(contPicanha);
   }
 
   @FXML
@@ -238,6 +247,7 @@ public class ControleMenuDeCompras {
     else
     queijoQuantLabel.setText(String.valueOf(contQueijo));
     }
+    setContQueijo(contQueijo);
   }
 
   @FXML
@@ -249,8 +259,11 @@ public class ControleMenuDeCompras {
     else
     tomateQuantLabel.setText(String.valueOf(contTomate));
     }
+    setContTomate(contTomate);
   }
 
+  
+  ControleFinalizarCompra cFC;
   @FXML
   void finalizarCompraButton(ActionEvent event) {
     MercadoApp.changeScreenFinalizarCompra(event);
@@ -262,49 +275,53 @@ public class ControleMenuDeCompras {
   }
 
 
-  public String compraTotal () {
-  String compraTotal = "Segue abaixo o carrinho de compras: \n\nQuantidade:            Produto:             Valor:";
   double totalAlface,totalPao, totalCenoura, totalBerinjela, totalTomate, totalPicanha, totalOvos, totalLeite, totalFrango, totalQueijo = 0;
+  static double valorDaCompra;
+  public String compraTotal () {
+  String compraTotal = "Segue abaixo o carrinho de compras: \n\nQuantidade:            Produto:             Valor:\n";
     if (getContAlface() > 0) {
       totalAlface = getContAlface()*0.7;
-      compraTotal += (getContAlface() + "            Alface             R$"+totalAlface+"\n");
+      compraTotal += (getContAlface() + "                                  Alface               R$"+totalAlface+"\n");
     }
     if (getContPao() > 0) {
       totalPao = getContPao();      
-      compraTotal += (getContPao() + "            Pão             R$"+totalPao+"\n");
+      compraTotal += (getContPao() + "                                  Pão                   R$"+totalPao+"\n");
     }
     if (getContCenoura() > 0) {
       totalCenoura = getContCenoura() * 1.2;
-      compraTotal += (getContCenoura() + "            Cenoura             R$"+totalCenoura+"\n");
+      compraTotal += (getContCenoura() + "                                  Cenoura           R$"+totalCenoura+"\n");
     }
     if (getContBerinjela() > 0) {  
       totalBerinjela = getContBerinjela() * 4.5;
-      compraTotal += (getContBerinjela() + "            Berinjela             R$"+totalBerinjela+"\n");;
+      compraTotal += (getContBerinjela() + "                                  Berinjela          R$"+totalBerinjela+"\n");;
     }
     if (getContTomate() > 0) {
       totalTomate = getContTomate() * 0.9;
-      compraTotal += (getContTomate() + "            Tomate             R$"+totalTomate+"\n");
+      compraTotal += (getContTomate() + "                                  Tomate            R$"+totalTomate+"\n");
     }
     if (getContPicanha()> 0) {
       totalPicanha = getContPicanha() * 60;
-      compraTotal += (getContPicanha() + "            Picanha             R$"+totalPicanha+"\n");
+      compraTotal += (getContPicanha() + "                                  Picanha           R$"+totalPicanha+"\n");
     }
     if (getContOvos() > 0) {
       totalOvos = getContOvos() * 0.75;
-      compraTotal += (getContOvos() + "            Ovos             R$"+totalOvos+"\n");
+      compraTotal += (getContOvos() + "                                  Ovos                R$"+totalOvos+"\n");
     }
     if (getContLeite() > 0) {
       totalLeite = getContLeite() * 6;
-      compraTotal += (getContLeite() + "            Leite             R$"+totalLeite+"\n");
+      compraTotal += (getContLeite() + "                                  Leite                R$"+totalLeite+"\n");
     }
     if (getContFrango() > 0) {
       totalFrango = getContFrango() * 40;
-      compraTotal += (getContFrango() + "            Frango             R$"+totalFrango+"\n");
+      compraTotal += (getContFrango() + "                                  Frango            R$"+totalFrango+"\n");
     }
     if (getContQueijo() > 0) {
       totalQueijo = getContQueijo() * 36;
-      compraTotal += (getContQueijo() + "            Queijo             R$"+totalQueijo+"\n");
+      compraTotal += (getContQueijo() + "                                  Queijo             R$"+totalQueijo+"\n");
     }
+    valorDaCompra = totalAlface + totalPao + totalCenoura + totalBerinjela + totalTomate + totalPicanha + totalOvos + 
+    totalLeite + totalFrango + totalQueijo;
+    compraTotal += "\n\nValor da compra: R$"+valorDaCompra;
     return compraTotal;
   }
 

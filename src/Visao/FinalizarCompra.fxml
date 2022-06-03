@@ -17,7 +17,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="270.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controle.ControleFinalizarCompra">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="270.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controle.ControleFinalizarCompra">
    <children>
       <ImageView fitHeight="150.0" fitWidth="150.0" layoutX="60.0" layoutY="165.0" opacity="0.2" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -40,7 +40,7 @@
       </AnchorPane>
       <VBox alignment="TOP_CENTER" layoutY="43.0" prefHeight="437.0" prefWidth="270.0">
          <children>
-            <TextArea fx:id="TextAreaCompras" editable="false" prefHeight="329.0" prefWidth="270.0" />
+            <TextArea fx:id="textAreaCompras" editable="false" prefHeight="313.0" prefWidth="270.0" />
             <VBox maxHeight="-Infinity" maxWidth="1.7976931348623157E308">
                <children>
                   <Button mnemonicParsing="false" style="-fx-background-color: rgba(0,0,0,0);" text="Confirmar pagamento" textFill="#c35817" />
@@ -67,7 +67,7 @@
                   </HBox>
                   <GridPane>
                      <children>
-                        <Button mnemonicParsing="false" onAction="#finalizarButton" style="-fx-background-radius: 6; -fx-border-radius: 6; -fx-border-width: 1; -fx-border-width: #fafafa; -fx-background-color: rgba(0,0,0,0);" textFill="WHITE" GridPane.columnIndex="1">
+                        <Button fx:id="finalizarButton" mnemonicParsing="false" onAction="#finalizarButton" style="-fx-background-radius: 6; -fx-border-radius: 6; -fx-border-width: 1; -fx-border-width: #fafafa; -fx-background-color: rgba(0,0,0,0);" textFill="WHITE" visible="false" GridPane.columnIndex="1">
                            <font>
                               <Font name="Rockwell" size="15.0" />
                            </font>
@@ -85,7 +85,7 @@
                                           <Cursor fx:constant="HAND" />
                                        </cursor>
                                     </Label>
-                                    <ImageView fitHeight="51.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                    <ImageView fx:id="finalizarImageButton" fitHeight="51.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" visible="false">
                                        <image>
                                           <Image url="@../Imagens/concluir_icon.png" />
                                        </image>
@@ -137,5 +137,13 @@
             </VBox>
          </children>
       </VBox>
+      <ImageView fitHeight="35.0" fitWidth="39.0" layoutX="224.0" layoutY="357.0" onMouseClicked="#refreshImageButton" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Imagens/refresh.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
    </children>
 </AnchorPane>

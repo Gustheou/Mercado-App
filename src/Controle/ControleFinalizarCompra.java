@@ -1,20 +1,16 @@
 package Controle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.TextArea;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-
-import java.net.URL;
-import java.util.ResourceBundle;
-
 import javax.swing.JOptionPane;
 
 import Visao.MercadoApp;
 
-public class ControleFinalizarCompra implements Initializable {
+public class ControleFinalizarCompra extends ControleMenuDeCompras{
 
   @FXML
   private Button adicionarButton;
@@ -23,21 +19,29 @@ public class ControleFinalizarCompra implements Initializable {
   private MenuButton splitMenuButton;
 
   @FXML
-  private TextArea TextAreaCompras;
+  public TextArea textAreaCompras;
+
+  @FXML
+  private Button finalizarButton;
+
+  @FXML
+  private ImageView finalizarImageButton;
 
   private String setItem;
   private double troco = 0;
-  private double valorTotalDaCompra = 0;
+  String resultado;
   ControleMenuDeCompras cMC = new ControleMenuDeCompras();
 
-  @Override
-  public void initialize(URL location, ResourceBundle resources) {
-    TextAreaCompras.setText(String.valueOf(cMC.compraTotal())); 
+  @FXML
+  void refreshImageButton(MouseEvent event) {
+    textAreaCompras.setText(compraTotal());
   }
 
   @FXML
   void aVistaMenuItem(ActionEvent event) {
     adicionarButton.setVisible(true);
+    finalizarButton.setVisible(true);
+    finalizarImageButton.setVisible(true);
     setItem = "À vista";
     splitMenuButton.setText(setItem);
     adicionarButton.setText("Troco?");
@@ -46,6 +50,8 @@ public class ControleFinalizarCompra implements Initializable {
   @FXML
   void cartaoMenuItem(ActionEvent event) {
     adicionarButton.setVisible(true);
+    finalizarButton.setVisible(true);
+    finalizarImageButton.setVisible(true);
     setItem = "Cartão";
     splitMenuButton.setText(setItem);
     adicionarButton.setText("Adicionar");
@@ -56,17 +62,24 @@ public class ControleFinalizarCompra implements Initializable {
     if (setItem.equals("Cartão")){
       MercadoApp.changeScreenAdicionarCartao(event);
     } else {
-      troco = Double.parseDouble(JOptionPane.showInputDialog(null, "A sua compra é de R$ x\nGostaria de troco para quanto?"));
-      while (troco < valorTotalDaCompra ) {
+      troco = Double.parseDouble(JOptionPane.showInputDialog(null, "A sua compra é de R$"+valorDaCompra+"\nGostaria de troco para quanto?"));
+      while (troco < valorDaCompra ) {
         JOptionPane.showMessageDialog(null, "O valor a ser informado deve ser maior ou igual ao valor total da compra.");
-        troco = Double.parseDouble(JOptionPane.showInputDialog(null, "A sua compra é de R$ x\nGostaria de troco para quanto?"));
+        troco = Double.parseDouble(JOptionPane.showInputDialog(null, "A sua compra é de R$"+valorDaCompra+"\nGostaria de troco para quanto?"));
       }
+      JOptionPane.showMessageDialog(null,"O seu troco será de: R$"+(troco - valorDaCompra)+"\nObrigado pela preferência, até a próxima.");
     }
   }
 
   @FXML
   void finalizarButton(ActionEvent event) {
-    
+    MercadoApp.changeScreenCompraFinalizada(event);
+    setItem = "Pagamento";
+    splitMenuButton.setText(setItem);
+    adicionarButton.setVisible(false);
+    textAreaCompras.setText("");
+    finalizarButton.setVisible(false);
+    finalizarImageButton.setVisible(false);
   }
 
   @FXML
@@ -75,6 +88,9 @@ public class ControleFinalizarCompra implements Initializable {
     setItem = "Pagamento";
     splitMenuButton.setText(setItem);
     adicionarButton.setVisible(false);
+    textAreaCompras.setText("");
+    finalizarButton.setVisible(false);
+    finalizarImageButton.setVisible(false);
   }
 
   @FXML
@@ -83,6 +99,7 @@ public class ControleFinalizarCompra implements Initializable {
     setItem = "Pagamento";
     splitMenuButton.setText(setItem);
     adicionarButton.setVisible(false);
+    textAreaCompras.setText("");
   }
 
  

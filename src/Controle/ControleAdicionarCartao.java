@@ -57,6 +57,13 @@ public class ControleAdicionarCartao {
         MercadoApp.changeScreenFinalizarCompra(event);
     }
     } catch (NumberFormatException e) {}
+    titularTextField.setText("");
+    numeroTextField.setText("");
+    validadeMesTextField.setText("");
+    validadeAnoTextField.setText("");
+    cvvTextField.setText("");
+    enderecoTextField.setText("");
+    cidadeTextField.setText("");
   }
 
   @FXML
@@ -79,16 +86,37 @@ public class ControleAdicionarCartao {
         MercadoApp.changeScreenFinalizarCompra(event);
     }
     } catch (NumberFormatException e) {}
+    titularTextField.setText("");
+    numeroTextField.setText("");
+    validadeMesTextField.setText("");
+    validadeAnoTextField.setText("");
+    cvvTextField.setText("");
+    enderecoTextField.setText("");
+    cidadeTextField.setText("");
   }
 
   @FXML
   void voltarButton(ActionEvent event) {
     MercadoApp.changeScreenFinalizarCompra(event);
+    titularTextField.setText("");
+    numeroTextField.setText("");
+    validadeMesTextField.setText("");
+    validadeAnoTextField.setText("");
+    cvvTextField.setText("");
+    enderecoTextField.setText("");
+    cidadeTextField.setText("");
   }
 
   @FXML
   void voltarImageButton(MouseEvent event) {
     MercadoApp.changeScreenFinalizarCompra(event);
+    titularTextField.setText("");
+    numeroTextField.setText("");
+    validadeMesTextField.setText("");
+    validadeAnoTextField.setText("");
+    cvvTextField.setText("");
+    enderecoTextField.setText("");
+    cidadeTextField.setText("");
   }
 
 }

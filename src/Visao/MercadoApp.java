@@ -17,6 +17,7 @@ public class MercadoApp extends Application{
   private static Scene telaDeCompras;
   private static Scene telaDeFinalizarCompra;
   private static Scene telaDeAdicionarCartao;
+  private static Scene telaDeCompraFinalizada;
 
   public static void main (String [] args) {
     launch (args);
@@ -38,6 +39,8 @@ public class MercadoApp extends Application{
     telaDeFinalizarCompra = new Scene (fxmlTelaDeFinalizarCompra);
     Parent fxmlTelaDeAdicionarCartao = FXMLLoader.load(getClass().getResource("AdicionarCartao.fxml"));
     telaDeAdicionarCartao = new Scene (fxmlTelaDeAdicionarCartao);
+    Parent fxmlTelaDeCompraFinalizada = FXMLLoader.load(getClass().getResource("CompraFinalizada.fxml"));
+    telaDeCompraFinalizada = new Scene (fxmlTelaDeCompraFinalizada);
 
 
     cenario.getIcons().add(new Image("Imagens/Icone.png"));
@@ -79,5 +82,9 @@ public class MercadoApp extends Application{
 
   public static void changeScreenAdicionarCartao (ActionEvent event){
     stage.setScene(telaDeAdicionarCartao);
+  }
+
+  public static void changeScreenCompraFinalizada (ActionEvent event){
+    stage.setScene(telaDeCompraFinalizada);
   }
 }//Fim da classe Principal
