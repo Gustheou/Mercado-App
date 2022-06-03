@@ -46,7 +46,7 @@
                   <Font name="Rockwell" size="30.0" />
                </font>
             </Label>
-            <TextField fx:id="loginTextField" maxHeight="-Infinity" maxWidth="-Infinity" promptText="Usuario" style="-fx-border-color: white; -fx-background-color: #e0e0e0; -fx-background-radius: 10;">
+            <TextField fx:id="loginTextField" maxHeight="-Infinity" maxWidth="-Infinity" promptText="CPF" style="-fx-border-color: white; -fx-background-color: #e0e0e0; -fx-background-radius: 10;">
                <VBox.margin>
                   <Insets bottom="10.0" />
                </VBox.margin>
@@ -54,7 +54,7 @@
                   <Cursor fx:constant="TEXT" />
                </cursor>
             </TextField>
-            <PasswordField fx:id="senhaTextField" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="28.0" prefWidth="164.0" promptText="Senha" style="-fx-border-color: white; -fx-background-color: #e0e0e0; -fx-background-radius: 10;">
+            <PasswordField fx:id="senhaTextField" maxHeight="-Infinity" maxWidth="-Infinity" promptText="Senha" style="-fx-border-color: white; -fx-background-color: #e0e0e0; -fx-background-radius: 10;">
                <cursor>
                   <Cursor fx:constant="TEXT" />
                </cursor>
