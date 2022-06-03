@@ -1,15 +1,20 @@
 package Controle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.MenuButton;
+import javafx.scene.control.TextArea;
 import javafx.scene.input.MouseEvent;
+
+import java.net.URL;
+import java.util.ResourceBundle;
 
 import javax.swing.JOptionPane;
 
 import Visao.MercadoApp;
 
-public class ControleFinalizarCompra {
+public class ControleFinalizarCompra implements Initializable {
 
   @FXML
   private Button adicionarButton;
@@ -17,9 +22,18 @@ public class ControleFinalizarCompra {
   @FXML
   private MenuButton splitMenuButton;
 
+  @FXML
+  private TextArea TextAreaCompras;
+
   private String setItem;
   private double troco = 0;
   private double valorTotalDaCompra = 0;
+  ControleMenuDeCompras cMC = new ControleMenuDeCompras();
+
+  @Override
+  public void initialize(URL location, ResourceBundle resources) {
+    TextAreaCompras.setText(String.valueOf(cMC.compraTotal())); 
+  }
 
   @FXML
   void aVistaMenuItem(ActionEvent event) {
@@ -70,5 +84,7 @@ public class ControleFinalizarCompra {
     splitMenuButton.setText(setItem);
     adicionarButton.setVisible(false);
   }
+
+ 
 
 }
